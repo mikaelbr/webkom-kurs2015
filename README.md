@@ -101,10 +101,12 @@ løst på en funksjonell måte, men det må ikke være det i din løsning.
 3. Test ved å kjøre tester: Det er satt opp noen enkle tester på løsningen for
    å illustrere hvordan man kan teste slike systemer og for å hjelpe til med
    implementeringen. Kjør tester:
+
    ```shell
    $ npm test
    ```
    Kan kjøre tester automatisk ved endring ved å bruke kommando:
+
    ```shell
    $ npm test -- -w
    ```
