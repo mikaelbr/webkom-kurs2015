@@ -1,0 +1,154 @@
+.tardis {
+  position: absolute;
+  top: -48px;
+  width: 100%;
+  background: #003b6f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 200ms ease-in;
+  z-index: 15;
+}
+
+.tardis.open {
+  top: 0;
+}
+
+.tardis h1 {
+  color: #fff;
+  padding: 0 20px;
+}
+
+.button, .revision, .open-close-button {
+  border: 0 none;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 34px;
+  margin-bottom: 0;
+  padding: 7px 10px;
+  text-transform: none;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  /* auto */
+  text-align: center;
+  min-width: 100px;
+  flex: 5 0 100%;
+  outline: 0;
+}
+
+.button, .revision, .open-close-button {
+  cursor: pointer;
+}
+
+.button--copy {
+  margin-right: 10px;
+}
+
+
+
+.open-close-button {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+}
+
+.tardis.open .open-close-button,
+.open-close-button:hover {
+  bottom: -48px;
+}
+
+
+.button {
+  background: none repeat scroll 0 0 #E0645C;
+  color: #FFFFFF;
+}
+.button:hover {
+  background: none repeat scroll 0 0 #999999;
+  color: #FFFFFF;
+}
+
+.button--small {
+  font-size: 14px;
+  line-height: 15px;
+  position: absolute;
+  right: 30px;
+}
+
+.revision {
+  background: none repeat scroll 0 0 #46b98a;
+  color: #FFFFFF;
+}
+.revision:hover {
+  background: none repeat scroll 0 0 #444444;
+  color: #FFFFFF;
+}
+
+.open-close-button {
+  background: none repeat scroll 0 0 #003b6f;
+  color: #FFFFFF;
+  text-indent: -9999px;
+  background: url('tardis.png') center center no-repeat #003b6f;
+}
+
+.open-close-button:hover {
+  background-color: #444444;
+}
+
+
+.button--copy {
+  background: none repeat scroll 0 0 rgb(44, 50, 59);
+  color: #FFFFFF;
+}
+.button--copy:hover {
+  background: none repeat scroll 0 0 #2DB6CF;
+  color: #FFFFFF;
+}
+
+
+.state-viewer {
+  transition: all 200ms ease-in;
+  z-index: 10;
+  position: absolute;
+  top: -500px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  background: rgb(44, 50, 59);
+}
+
+.state-viewer > div {
+  outline: 0;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.state-viewer.open {
+  top: 48px;
+}
+
+
+.markupify {
+	line-height: 17px;
+	font-size: 17px;
+	font-family: monospace;
+	white-space: pre;
+  color: rgb(170, 177, 191);
+}
+.markupify .key {
+	font-weight: bold;
+}
+.markupify .bool {
+	color: firebrick;
+}
+.markupify .string {
+	color: rgb(210, 155, 98);
+}
+.markupify .null {
+	color: gray;
+}
+.markupify .number {
+	color: blue;
+}

@@ -1,0 +1,39 @@
+{
+  "name": "tardis-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "mocha --compilers js:babel/register src/tests/*-test.js",
+    "test-1": "mocha --compilers js:babel/register assignments/1-*.js",
+    "test-2": "mocha --compilers js:babel/register assignments/2-*.js",
+    "test-3": "mocha --compilers js:babel/register assignments/3-*.js",
+    "test-assignments": "mocha --compilers js:babel/register assignments/3-*.js",
+    "build": "browserify src/app.js -o dist/build.js",
+    "watch": "watch 'npm run build' ./src",
+    "serve": "st -nc -i index.html -p 3000"
+  },
+  "author": "Mikael Brevik",
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "immstruct": "^2.0.0",
+    "immstruct-actions": "^0.9.0",
+    "omniscient": "^3.3.0",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "immutable": "^3.7.4",
+    "mocha": "^2.3.0",
+    "st": "^0.5.5",
+    "watch": "^0.16.0"
+  }
+}
