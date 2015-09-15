@@ -36,10 +36,7 @@ on props.
 
 Remember: React components always need to have *one single* top parent
 */
-const NameBox = component(({name, title}) => <div>
-  <h1>{name}</h1>
-  <h2>{title}</h2>
-</div>); /* Component here */
+const NameBox = null; /* Component here */
 
 
 /*
@@ -54,11 +51,7 @@ Name: Domino, Title: Lucky
 Name: Nathan Summers, Title: Slider by Two
 
 */
-const List = component(() => <div>
-  <NameBox name="Wade Wilson" title="Not Spiderman" />
-  <NameBox name="Domino" title="Lucky" />
-  <NameBox name="Nathan Summers" title="Slider by Two" />
-</div>); /* Component here */
+const List = null; /* Component here */
 
 
 /*
@@ -75,9 +68,7 @@ var list = [
 
 Here you want to build your list programatically, not static.
 */
-const DynamicList = component(({items}) => <div>
-  {items.map(item => NameBox(item))}
-</div>); /* Component here */
+const DynamicList = null; /* Component here */
 
 
 

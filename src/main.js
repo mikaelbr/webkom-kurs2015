@@ -11,12 +11,7 @@ var {div, h1, p, a} = React.DOM;
 // on click it should change contents of cursor passed as cell
 // Should not do onClick if disabled (there is a winner)
 // Outputs "x" or "o" (contents of cell cursor).
-var Cell = component(({disabled, cell, board, change}) => a({
-    className: 'cell',
-    onClick: () => !disabled && change(cell, board)
-  },
-  cell.valueOf()
-));
+var Cell = null;
 
 // Should have className 'board' and flat list of all Cells.
 // Should pass two cursors:
@@ -24,29 +19,12 @@ var Cell = component(({disabled, cell, board, change}) => a({
 //  - "board": cursor to the entire board
 // Should also pass down if disabled or not (if there is a
 // winner) and a change action to cell
-var Board = component(({disabled, board, actions: {change}}) => div({
-    className: 'board'
-  },
-  board.flatMap((row, x) =>
-    row.map((cell, y) =>
-      Cell({
-        key: `cell-${x}-${y}`,
-        cell: board.cursor([x, y]),
-        disabled, board, change
-      }))
-  ).toArray()
-));
+var Board = null;
 
 // Should show an anchor with notice of who won
 // On click on anchor: reset game
 // Should output something like "Game finished! Winner: {SOME WINNER}."
-var Winner = component(({board, onClick: reset, winner}) => a({
-    className: 'winner',
-    onClick: () => reset(board)
-  },
-  h1({}, `Game finished! Winner: ${winner}`),
-  p({}, 'Click to restart')
-));
+var Winner = null;
 
 // App should show a div with className `tic-tac-toe`
 // Should show Winner component if detected a winner
@@ -63,22 +41,7 @@ var Winner = component(({board, onClick: reset, winner}) => a({
   }
 }
 */
-var App = component(function ({state, actions}) {
-  var { findWinner, reset } = actions;
-  var board = state.cursor('board');
-  var winner = findWinner(board);
-
-  return div({
-    className: 'tic-tac-toe'
-  },
-    !winner ? null : Winner({ winner, board, onClick: reset }),
-    Board({
-      board,
-      actions: actions,
-      disabled: !!winner
-    })
-  );
-});
+var App = null;
 
 
 // Export App component to be used by app.js

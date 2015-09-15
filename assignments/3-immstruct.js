@@ -39,7 +39,7 @@ Use Immutable.js API to create lists and operate on that list.
 var { Range, Map, List } = Immutable;
 
 // 1: Create a list of numbers from 0 to 99 (count 100)
-var numbers = Range(0, 100);
+var numbers;
 
 it('creates a range from 0 to 100', function () {
   assert.equal(numbers.get(0), 0);
@@ -55,7 +55,7 @@ it('tripled every number', function () {
 
 
 // Pick only items from "tripled" which is even numbers (dividable by 2)
-var filtered = tripled.filter(n => n % 2 === 0);
+var filtered;
 
 it('filters out/removes every number odd number', function () {
   assert.equal(filtered.get(2), 12);
@@ -63,7 +63,7 @@ it('filters out/removes every number odd number', function () {
 });
 
 // Use reduce to sum all items in list "filtered"
-var reduced = filtered.reduce((a, b) => a + b);
+var reduced;
 
 it('reduces the numbers to find their sum', function () {
   assert.equal(reduced, 7350);
@@ -78,7 +78,7 @@ var map = immstruct({ message: "Look behind you, a Three-Headed Monkey!" });
 
 // Create a cursor to the message property of the map
 // and store the reference to it in the message variable
-var message = map.cursor('message');
+var message;
 
 it('creates a cursor from the message', function () {
   assert.equal(message.deref(), "Look behind you, a Three-Headed Monkey!");
@@ -86,8 +86,7 @@ it('creates a cursor from the message', function () {
 
 
 // Update the value of the message cursor to make the test pass
-var updatedMessage = message.update(() =>
-  "The ships hung in the sky in much the same way that bricks don't.");
+var updatedMessage;
 
 it('updates the value of the cursor', function () {
   assert.equal(updatedMessage.deref(),
@@ -109,18 +108,11 @@ it('should not modify the original cursor', function () {
 /**
 
 */
-const NameBox = component((item) => <div>
-  <h1>{item.get('name')}</h1>
-  <h2>{item.get('title')}</h2>
-</div>);
+const NameBox = null;
 
-const DynamicList = component(({items}) => <div>
-  {items.map(item => NameBox(item)).toArray()}
-</div>);
+const DynamicList = null;
 
-const App = component(({cursor}) => <div>
-  <DynamicList items={cursor.cursor('items')} />
-</div>);
+const App = null;
 
 var structure = immstruct({
   items: [
@@ -130,8 +122,9 @@ var structure = immstruct({
   ]
 });
 
+// Pass cursor to top structure to App
 var output = render(App({
-  cursor: structure.cursor()
+
 }));
 
 it('should should take a structure and print dynamic list', function () {

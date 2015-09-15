@@ -16,30 +16,20 @@ module.exports = actions
   // Function taking cell and board and returns updated cell value.
   // Should update cell to be next piece (@see getNextPiece) based on board.
   .register(function change (cell, board) {
-    return cell.update(current => current !== '' ? current : getNextPiece(board));
+
   })
   // Function to return `x` if x is winner, `o` if o is winner or
   // false if no winner
   .register(function findWinner (board) {
-    const checks = [
-      board, transpose(board), diagonal(board), diagonal(board.reverse())
-    ].map(v => v.find(threeInRow)).filter(v => !!v)[0];
 
-    if (checks) return checks.get(0);
-
-    const flattened = board.flatten(true);
-    if (flattened.count(identity) === flattened.count()) return 'No one';
-
-    return false;
   })
   // Function resetting the board. All cells should be set to empty string
   .register(function reset (board) {
-    return board.update((current) =>
-      current.map(row => row.map(() => '')));
+
   });
 
 
-
+// Function to scan through board and detect next piece.
 function getNextPiece (board) {
   const stats = board.flatten(true).reduce((acc, item) =>
     item === '' ? acc : acc.update(item, c => c + 1),
