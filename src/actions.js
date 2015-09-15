@@ -11,10 +11,15 @@ const diagonal = matrix => immutable.List([
   matrix.map((row, i) => matrix.getIn([i, i]))
 ]);
 
+// Export action functions
 module.exports = actions
+  // Function taking cell and board and returns updated cell value.
+  // Should update cell to be next piece (@see getNextPiece) based on board.
   .register(function change (cell, board) {
     return cell.update(current => current !== '' ? current : getNextPiece(board));
   })
+  // Function to return `x` if x is winner, `o` if o is winner or
+  // false if no winner
   .register(function findWinner (board) {
     const checks = [
       board, transpose(board), diagonal(board), diagonal(board.reverse())
@@ -27,6 +32,7 @@ module.exports = actions
 
     return false;
   })
+  // Function resetting the board. All cells should be set to empty string
   .register(function reset (board) {
     return board.update((current) =>
       current.map(row => row.map(() => '')));
@@ -35,9 +41,10 @@ module.exports = actions
 
 
 function getNextPiece (board) {
-  const pieceStats = board.flatten(true).reduce(
-      (acc, item) => item === '' ? acc : acc.update(item, c => c + 1),
-      immutable.Map({ 'x': 0, 'o': 0 }));
-  return (pieceStats.get('x') === pieceStats.get('o')) ?
-    'x' : pieceStats.entrySeq().minBy(([_, value]) => value)[0];
+  const stats = board.flatten(true).reduce((acc, item) =>
+    item === '' ? acc : acc.update(item, c => c + 1),
+    immutable.Map({ 'x': 0, 'o': 0 }));
+
+  return (stats.get('x') === stats.get('o')) ?
+    'x' : stats.entrySeq().minBy(([_, value]) => value)[0];
 }
