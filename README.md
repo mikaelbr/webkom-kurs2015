@@ -44,7 +44,7 @@ Dersom det er noe du sliter med, kan det være at det står noe relevant
 informasjon her:
 
 * [`./help/ES6-cheatsheet.md`](./help/ES6-cheatsheet.md): Hjelp til ES6/ES2015
-* [`./help/Cursor.md`](./help/Cursor.md): Hjelp til Immutable.js, Cursors og Immstruct
+* [`./help/Cursors.md`](./help/Cursors.md): Hjelp til Immutable.js, Cursors og Immstruct
 
 ## Assignments
 
