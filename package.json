@@ -1,7 +1,8 @@
 {
-  "name": "tardis-example",
+  "name": "webkom-kurs2015",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.html",
   "scripts": {
     "test": "mocha --compilers js:babel/register src/tests/*-test.js",
@@ -13,7 +14,7 @@
     "watch": "watch 'npm run build' ./src",
     "serve": "st -nc -i index.html -p 3000"
   },
-  "author": "Mikael Brevik",
+  "author": "Mikael Brevik <mikaelbre@gmail.com>",
   "license": "MIT",
   "browserify": {
     "transform": [
