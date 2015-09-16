@@ -1,5 +1,7 @@
 # Webkom Kickoff 2015
 
+(WebPack versjon finnes her: https://github.com/mikaelbr/webkom-kurs2015-webpack)
+
 Ambisiøst introduksjonskurs til, alt eller noe av det følgende
 
   1. Bruk av ES2015 i React apps
