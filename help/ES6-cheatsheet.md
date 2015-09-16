@@ -186,6 +186,96 @@ var Component = React.createClass({
 
 ## Enhanced Object Literals
 
+
+### Avoiding duplicate text
+
+You can save characters using enhanced object literals. Where as in pre-ES6
+you needed to duplicate property names and values, in ES6, if the name is the
+same, you can avoid the redundant variable value.
+
+#### Example
+
+```js
+var foo = 1;
+
+// Before
+var myObject = { foo: foo };
+//> { foo: 1 }
+
+// Now
+var myObject = { foo };
+//> { foo: 1 }
+
+```
+
+In many cases it might look like reverse destructuring, but it's just a shorthand
+notation. It can be used very nicely in combination with destructuring though.
+
+For instance, the following code would work just fine.
+
+```js
+var Component = function ({title, subtitle}) {
+  return <div>
+    <h1 ref="header">{title}</h1>
+    <h2 ref="subheader">{subtitle}</h2>
+  </div>
+};
+function render () {
+  var title = 'MyTitle';
+  var subtitle = 'Some silly text';
+  React.render(Component({title, subtitle}), el);
+
+  // Instead of:
+  // React.render(Component({ title: title, subtitle: subtitle}), el);
+}
+render();
+```
+
+### Short-hand methods
+
+The shorthand from above also works on functions in object literals. For instance:
+
+```js
+var MyComponent = React.createClass({
+  render() {
+    <h1 ref="header">Hello!</h1>
+  }
+});
+
+// instead of
+var MyComponent = React.createClass({
+  render: function () {
+    <h1 ref="header">Hello!</h1>
+  }
+});
+```
+
+**Note**, however, that this breaks "functions as expressions". This means we
+can't have the flexibility of treating functions as values in object literal
+declarations.
+
+You can do:
+
+```js
+// instead of
+var MyComponent = React.createClass({
+  render: nullSafeData(function () {
+    <h1 ref="header">Hello!</h1>
+  })
+});
+```
+
+But you cant do:
+
+```js
+var MyComponent = React.createClass({
+  nullSafeData(render() {
+    <h1 ref="header">Hello!</h1>
+  })
+});
+```
+
+
 ## Scopes
 
 Up until now, there has only been function scope in Javascript (* see aside). This
