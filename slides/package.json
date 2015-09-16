@@ -1,0 +1,28 @@
+{
+  "name": "webkom-kurs2015-slides",
+  "version": "1.0.0",
+  "description": "Slides for presentation about unidirectional flow etc",
+  "main": "index.html",
+  "dependencies": {
+    "babelify": "^6.2.0",
+    "remark-bekk": "bekk/remark"
+  },
+  "private": true,
+  "devDependencies": {
+    "brfs": "^1.4.1",
+    "browserify": "^11.0.1",
+    "watch": "^0.16.0"
+  },
+  "scripts": {
+    "build": "browserify src/app.js -o dist/build.js",
+    "watch": "watch 'npm run build' ./slides ./src"
+  },
+  "browserify": {
+    "transform": [
+      "brfs",
+      "babelify"
+    ]
+  },
+  "author": "Mikael Brevik",
+  "license": "MIT"
+}
