@@ -12,13 +12,6 @@ $ npm run tests-3 -- -w
 
 ---
 
-Assignment:
-
-1. Create a immutable structure
-2. Make and render a List components (list of NameBox)
-3. Pass dynamic list of NameBox components.
-
-
 You can use ES6/ES2015 in this file.
 */
 
