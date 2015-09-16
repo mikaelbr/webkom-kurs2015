@@ -40,7 +40,7 @@ it('creates a range from 0 to 100', function () {
 });
 
 // Transform all numbers to a multiplum of 3
-var tripled = numbers.map((n) => n * 3);
+var tripled;
 
 it('tripled every number', function () {
   assert.equal(tripled.get(40), 120);
